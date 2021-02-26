@@ -1,0 +1,43 @@
+<div class="display-container">
+    <div class="example-container">
+        <h2>Open</h2>
+        <div
+            id="open"
+            cdkDropList
+            #openList="cdkDropList"
+            [cdkDropListData]="open"
+            [cdkDropListConnectedTo]="[doneList,progressList]"
+            class="example-list"
+            (cdkDropListDropped)="drop($event)">
+            <div class="example-box" *ngFor="let item of open" [cdkDragData]="item" cdkDrag>{{item.title}}</div>
+        </div>
+    </div>
+
+    <div class="example-container">
+        <h2>In progress</h2>
+        <div
+            id="in-progress"
+            cdkDropList
+            #progressList="cdkDropList"
+            [cdkDropListData]="progress"
+            [cdkDropListConnectedTo]="[doneList,openList]"
+            class="example-list"
+            (cdkDropListDropped)="drop($event)">
+            <div class="example-box" [cdkDragData]="item" *ngFor="let item of progress" [cdkDragData]="item" cdkDrag>{{item.title}}</div>
+        </div>
+    </div>
+
+    <div class="example-container">
+        <h2>Done</h2>
+        <div
+            id="completed"
+            cdkDropList
+            #doneList="cdkDropList"
+            [cdkDropListData]="completed"
+            [cdkDropListConnectedTo]="[openList,progressList]"
+            class="example-list"
+            (cdkDropListDropped)="drop($event)">
+            <div class="example-box" [cdkDragData]="item" *ngFor="let item of completed" [cdkDragData]="item" cdkDrag>{{item.title}}</div>
+        </div>
+    </div>
+</div>

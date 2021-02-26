@@ -1,0 +1,24 @@
+<app-display [data]="result"></app-display>
+<h2>Add Task</h2>
+<div class="form-wrapper">
+    <div>
+        <div class="form-input">
+            <label>Title:</label>
+            <input [(ngModel)] = "title" type="text"/>
+        </div>
+        <div class="form-input">
+            <label>Description:</label>
+            <textarea [(ngModel)] = "description" type="text" rows="5" cols="20"></textarea>
+        </div>
+        <section class="example-section">
+            <label class="example-margin">Status:</label>
+            <mat-radio-group  class="example-radio-button"  [(ngModel)]="status">
+              <mat-radio-button class="example-margin" value="open">Open</mat-radio-button>
+              <mat-radio-button class="example-margin" value="in-progress">In-Progress</mat-radio-button>
+              <mat-radio-button class="example-margin" value="completed">Completed</mat-radio-button>
+            </mat-radio-group>
+        </section>
+        <button class="primary-btn" (click)="addTask()">Add Task</button>
+    </div>
+</div>
+<div class="scroll"></div>
